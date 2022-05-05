@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
+const env_variables = require('../envData');
+console.log(typeof(env_variables.db));
+
 const connectDB = async () => {
-    console.log(process.env.MONGO_URI)
     try{
-        const conn = await mongoose.connect("mongodb://127.0.0.1:27017/devcamper",
+        const conn = await mongoose.connect(env_variables.db,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
