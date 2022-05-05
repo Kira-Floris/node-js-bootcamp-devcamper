@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const env_variables = require('../envData');
-console.log(typeof(env_variables.db));
 
 const connectDB = async () => {
     try{
