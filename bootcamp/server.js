@@ -12,6 +12,7 @@ const errorHandler = require('./middlewares/error');
 
 // route files
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 
 // middleware files
 const logger = require('./middlewares/logger');
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV === 'development'){
 
 // mount routers
 app.use('/api/v1/bootcamps', bootcamps);
+app.use('/api/v1/courses', courses);
 
 // middlewares
 // must always be after routes
