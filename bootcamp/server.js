@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
@@ -35,6 +36,9 @@ if (process.env.NODE_ENV === 'development'){
 
 // file upload middleware
 app.use(fileupload());
+
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // mount routers
 app.use('/api/v1/bootcamps', bootcamps);
