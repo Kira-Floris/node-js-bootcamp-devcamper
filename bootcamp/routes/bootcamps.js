@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // controllers
-const { getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp, getBootcampsInRadius } = require('../controlers/bootcamps');
+const { getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp, getBootcampsInRadius, bootcampPhotoUpload } = require('../controlers/bootcamps');
 
 // include other resource routers
 const courseRouter = require('./courses');
@@ -19,7 +19,12 @@ router
     .get(getBootcamps)
     .post(createBootcamp);
 
-router.route('/:id')
+router
+    .route('/:id/photo')
+    .put(bootcampPhotoUpload);
+
+router
+    .route('/:id')
     .get(getBootcamp)
     .put(updateBootcamp)
     .delete(deleteBootcamp);
