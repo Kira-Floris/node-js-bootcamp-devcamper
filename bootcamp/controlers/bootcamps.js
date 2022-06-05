@@ -3,7 +3,7 @@ const geocoder = require('../utils/geocoder');
 const Bootcamp = require('../models/Bootcamp');
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middlewares/async');
-const env_variables = require('../envData');
+const envData = require('../envData');
 
 // @desc get all bootcamps
 // @route GET /api/v1/bootcamps
@@ -121,10 +121,10 @@ exports.bootcampPhotoUpload = asyncHandler(async (req, res, next) =>{
         );
     }
 
-    const file = req.files.file;
+    const file = req.files.photo;
 
     // make sure the image is a photo
-    if(!file.mimetype.startsWith(image)){
+    if(!file.mimetype.startsWith('image')){
         return next(
             new ErrorResponse(`Please upload an image file`, 400)
         );
