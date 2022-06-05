@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const fileupload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
 
 // connection to mongoDB
 const connectDB = require('./config/db');
@@ -27,6 +28,9 @@ const app = express();
 
 // body parser
 app.use(express.json());
+
+// cookie parser
+app.use(cookieParser());
 
 // app.use(logger); // custom middleware example
 
